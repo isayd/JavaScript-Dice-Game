@@ -16,4 +16,4 @@ GAME RULES:
 
 - Add an input field to the HTML where players can set the winning score, so that they can change the predefined score of 100.
 
-![alt tag](https://goo.gl/zEVJKU)
+![Screenshot](screenshot.png)

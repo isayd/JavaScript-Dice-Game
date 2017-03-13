@@ -26,22 +26,22 @@ init();
 
 document.querySelector('.btn-roll').addEventListener('click',function(){
     if (game == 1){
-    
-    diceUno = Math.floor(Math.random() * (6 - 5 + 1)) + 5;
-    segDiceUno = Math.floor(Math.random() * (6 - 5 + 1)) + 5;
-        
+
+    diceUno = Math.floor(Math.random() * (6 - 5 + 1)) + 1;
+    segDiceUno = Math.floor(Math.random() * (6 - 5 + 1)) + 1;
+
     document.getElementById('dice-1').style.display = 'block';
     document.getElementById('dice-2').style.display = 'block';
-    
+
     if ((diceUno == 6 && diceDos == 6) || (segDiceUno == 6 && segDiceDos == 6)){
         scores[activePlayer] = 0;
         document.getElementById('score-' + activePlayer).innerHTML = scores[activePlayer];
-        nextPlayer(); 
+        nextPlayer();
     } else if (diceUno === 1 || segDiceUno === 1){
         document.getElementById('dice-1').src = 'dice-' + diceUno + '.png';
         document.getElementById('dice-2').src = 'dice-' + segDiceUno + '.png';
         nextPlayer();
-        
+
     }
     else {
         document.getElementById('dice-1').src = 'dice-' + diceUno + '.png';
@@ -50,24 +50,24 @@ document.querySelector('.btn-roll').addEventListener('click',function(){
         numeros[activePlayer] = numeros[activePlayer] + suma;
         document.getElementById('current-' + activePlayer).innerHTML = numeros[activePlayer];
         diceDos = diceUno;
-        segDiceDos = segDiceUno; 
+        segDiceDos = segDiceUno;
     }
     }
 });
 
-document.querySelector('.btn-hold').addEventListener('click', function(){ 
+document.querySelector('.btn-hold').addEventListener('click', function(){
     if (game === 1){
         scores[activePlayer] = numeros[activePlayer] + scores[activePlayer];
         document.getElementById('score-' + activePlayer).innerHTML = scores[activePlayer];
-    
+
     var input = document.querySelector('.final-score').value;
-        
+
     if (input){
         var winningScore = input;
     }else{
         winningScore = 100;
     }
-        
+
     if (scores[activePlayer] >= winningScore){
         document.getElementById('name-' + activePlayer).innerHTML = 'Winner!!';
         document.querySelector('.player-' + activePlayer +'-panel').classList.toggle('winner');
@@ -82,7 +82,7 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 
 document.querySelector('.btn-new').addEventListener('click',init);
 
-function nextPlayer(){    
+function nextPlayer(){
     document.querySelector('.player-'+activePlayer+'-panel').classList.toggle('active');
     document.getElementById('current-' + activePlayer).innerHTML = 0;
     diceDos = 0;

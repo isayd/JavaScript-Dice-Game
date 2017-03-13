@@ -27,8 +27,9 @@ init();
 document.querySelector('.btn-roll').addEventListener('click',function(){
     if (game == 1){
 
-    diceUno = Math.floor(Math.random() * (6 - 5 + 1)) + 1;
-    segDiceUno = Math.floor(Math.random() * (6 - 5 + 1)) + 1;
+    // Math.floor(Math.random() * (max - min + 1)) + min;
+    diceUno = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+    segDiceUno = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
 
     document.getElementById('dice-1').style.display = 'block';
     document.getElementById('dice-2').style.display = 'block';
